@@ -1,0 +1,31 @@
+﻿
+@model VideoStore.ViewModels.MovieViewModel
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>index</h2>
+@foreach(var movie in Model.Movies) { 
+    <h1>
+        @movie.Name
+  
+    </h1>
+    <h2>Current renting costumer</h2>
+
+    <ul>
+        <li>@movie.currentRentingCustomer.Name @movie.currentRentingCustomer.LastName</li>
+
+    </ul>
+
+    <h2>Preivous</h2>
+    <ul>
+    @foreach (var customer in movie.PrevouisRentingCustomer)
+    {
+        <li>@customer.Name</li>
+  
+    }
+    </ul>
+        
+}
